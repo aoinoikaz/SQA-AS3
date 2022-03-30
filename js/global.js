@@ -1,6 +1,5 @@
 $(document).ready(function ()
 {
-    // Global initialization
     InitDatabase();
     InitHandlers();
 });
@@ -17,7 +16,6 @@ function InitHandlers()
         $('#generatedLink').hide();
     });
 
-    // Review page logic
     $('#submitButton').click(function ()
     {
         if(ValidateListing())
