@@ -1,0 +1,156 @@
+<!--
+Devon Tomlin - 7321599
+Software Quality Assurance
+Assignment 3 - Wednesday March 30, 2022
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <script src="js/lib/jquery.validate.js"></script>
+
+    <script src="js/dataAccessLayer.js"></script>
+    <script src="js/databaseHandler.js"></script>
+    <script src="js/facade.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/util.js"></script>
+
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/main_as3.css">
+
+    <title>SQA Part 2 Task 1</title>
+</head>
+<body>
+
+    <!-- Home page -->
+    <div id="homePage" data-role="page">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <h1> Sell your Vehicle now! </h1>
+
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li> <a href="#homePage" data-icon="home" class="ui-button-active ui-state-persist"> Home </a> </li>
+                    <li> <a href="#addNewVehiclePage" data-icon="plus"> Add New Vehicle </a> </li>
+                    <li> <a href="#viewVehiclesPage" data-icon="grid"> View Vehicles </a> </li>
+                </ul>
+            </div>
+        </header>
+
+        <section data-role="content">
+            <p>Website:</p>
+            <a href="#addNewVehiclePage" data-role="button" style="background-color: white" data-icon="plus"> Add New Vehicle</a>
+        </section>
+
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <h4>&copy; 2022 Devon Tomlin - 7321599</h4>
+        </footer>
+    </div>
+
+    <!-- Add new vehicle page -->
+    <div id="addNewVehiclePage" data-role="page">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <h1> Add New Vehicle</h1>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li> <a href="#homePage" data-icon="home"> Home </a> </li>
+                    <li> <a href="#addNewVehiclePage" data-icon="plus" class="ui-button-active ui-state-persist"> Add New Vehicle </a> </li>
+                    <li> <a href="#viewVehiclesPage" data-icon="grid"> View Vehicles </a> </li>
+                </ul>
+            </div>
+        </header>
+
+        <section data-role="content">
+            <form id="addVehicleForm" name="addVehicleForm">
+                <div id="sellerInformationSubForm">
+                    <h4>Seller's Information</h4>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" >
+
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" >
+
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" >
+
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city"  >
+
+                    <label for="province">Province</label>
+                    <select name="province" id="province" data-inline="true">
+                        <option value="ON">ON</option>
+                        <option value="QC">QC</option>
+                        <option value="NS">NS</option>
+                        <option value="NB">NB</option>
+                        <option value="MB">MB</option>
+                        <option value="BC">BC</option>
+                        <option value="PE">PE</option>
+                        <option value="SK">SK</option>
+                        <option value="AB">AB</option>
+                        <option value="NL">NL</option>
+                    </select>
+
+                    <label for="postalCode">Postal Code</label>
+                    <input type="text" id="postalCode" name="postalCode"   >
+
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber">
+
+                    <label for="emailAddress">Email address</label>
+                    <input type="email" id="emailAddress" name="emailAddress" >
+                </div>
+
+                <div id="vehicleInformationSubForm">
+                    <h4>Vehicle's Information</h4>
+
+                    <label for="vehicleMake">Make</label>
+                    <input type="text" id="vehicleMake" name="vehicleMake" >
+
+                    <label for="vehicleModel">Model</label>
+                    <input type="text" id="vehicleModel" name="vehicleModel" >
+
+                    <label for="vehicleYear">Year</label>
+                    <input type="number" id="vehicleYear" name="vehicleYear" >
+
+                    <label for="generatedLink">JD Power and Associates page</label>
+                    <input type="text" id="generatedLink" name="generatedLink" readonly>
+
+                    <button type="button" id="submitButton" name="submitButton" data-role="button" data-inline="true" class="ui-btn-active">Submit</button>
+                </div>
+            </form>
+
+        </section>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <h4>&copy; 2022 Devon Tomlin - 7321599</h4>
+        </footer>
+    </div>
+
+    <!-- View vehicles page  -->
+    <div id="viewVehiclesPage" data-role="page">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <h1> View Vehicles </h1>
+
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li> <a href="#homePage" data-icon="home" > Home </a> </li>
+                    <li> <a href="#addNewVehiclePage" data-icon="plus"> Add New Vehicle </a> </li>
+                    <li> <a href="#viewVehiclesPage" data-icon="grid" class="ui-button-active ui-state-persist"> View Vehicles </a> </li>
+                </ul>
+            </div>
+        </header>
+
+        <section data-role="content">
+            <ul id="viewVehicleListView" data-role="listview" class="ui-listview-inset" >
+            </ul>
+        </section>
+
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <h4>&copy; 2022 Devon Tomlin - 7321599</h4>
+        </footer>
+    </div>
+</body>
+</html>
