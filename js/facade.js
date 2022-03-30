@@ -24,6 +24,13 @@ function AddVehicle()
     {
         console.log("Successfully inserted vehicle listing into database!");
     }
+
+    return GetURL(vehicleYear, vehicleMake, vehicleModel);
+}
+
+function GetURL(vehicleYear, vehicleMake, vehicleModel)
+{
+    return "https://jdpower.com/cars/" + vehicleYear + "/" + vehicleMake + "/" + vehicleModel;
 }
 
 function DisplayVehicles()
@@ -57,6 +64,8 @@ function DisplayVehicles()
                 var vehicleModel = row['vehicleModel'];
                 var vehicleYear = row['vehicleYear'];
 
+                var url = GetURL(vehicleYear, vehicleMake, vehicleModel);
+
                 lviName = "listViewItem" + i;
                 htmlCode += `
                 <li id=${lviName}>
@@ -74,6 +83,7 @@ function DisplayVehicles()
                     <p>Make: ${vehicleMake}</p>
                     <p>Model: ${vehicleModel}</p>
                     <p>Year: ${vehicleYear}</p>
+                    <p><a href="${url}" target="_blank">${url}</a></p>
                 </li>`;
             }
         }

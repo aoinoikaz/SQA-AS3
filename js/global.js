@@ -5,7 +5,6 @@ $(document).ready(function ()
     InitHandlers();
 });
 
-
 function InitHandlers()
 {
     $(document).on("pageshow","#viewVehiclesPage",function()
@@ -13,12 +12,19 @@ function InitHandlers()
         DisplayVehicles();
     });
 
+    $(document).on("pageshow","#addNewVehiclePage",function()
+    {
+        $('#generatedLink').hide();
+    });
+
     // Review page logic
     $('#submitButton').click(function ()
     {
         if(ValidateListing())
         {
-            AddVehicle();
+            var url = AddVehicle();
+            $('#generatedLink').show();
+            $('#jdPower').val(url);
         }
         else
         {
