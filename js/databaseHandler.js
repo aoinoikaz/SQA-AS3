@@ -28,7 +28,6 @@ var DB =
         {
             var options = [];
 
-            // Create listing table
             var sql = "CREATE TABLE IF NOT EXISTS listings( " +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "firstName VARCHAR(30) NOT NULL," +
@@ -61,7 +60,6 @@ var DB =
 
     DropListingTable: function()
     {
-        // Drop lookup type table
         function txFunction(tx)
         {
             var sql = "DROP TABLE IF EXISTS listings;";

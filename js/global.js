@@ -1,6 +1,7 @@
 $(document).ready(function ()
 {
     InitDatabase();
+    //DB.DropListingTable();
     InitHandlers();
 });
 
@@ -14,6 +15,7 @@ function InitHandlers()
     $(document).on("pageshow","#addNewVehiclePage",function()
     {
         $('#generatedLink').hide();
+        $('#addVehicleForm')[0].reset();
     });
 
     $('#submitButton').click(function ()
@@ -21,8 +23,11 @@ function InitHandlers()
         if(ValidateListing())
         {
             var url = AddVehicle();
+
             $('#generatedLink').show();
-            $('#jdPower').val(url);
+            $('#jdPower').attr("href", url).html(url);
+
+            alert("Successfully added Vehicle!");
         }
         else
         {

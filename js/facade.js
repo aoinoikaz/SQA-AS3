@@ -1,6 +1,5 @@
 function AddVehicle()
 {
-    // Seller info
     var options = [];
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
@@ -11,7 +10,6 @@ function AddVehicle()
     var phoneNumber = $('#phoneNumber').val();
     var emailAddress = $('#emailAddress').val();
 
-    // Vehicle info
     var vehicleMake = $('#vehicleMake').val();
     var vehicleModel = $('#vehicleModel').val();
     var vehicleYear = $('#vehicleYear').val();
@@ -59,7 +57,6 @@ function DisplayVehicles()
                 var phoneNumber = row['phoneNumber'];
                 var emailAddress = row['emailAddress'];
 
-                // Vehicle info
                 var vehicleMake = row['vehicleMake'];
                 var vehicleModel = row['vehicleModel'];
                 var vehicleYear = row['vehicleYear'];

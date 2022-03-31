@@ -25,9 +25,11 @@ function ValidateListing()
             },
             postalCode:{
                 required: true,
+                isPostalCodeValid: true
             },
             phoneNumber:{
-                required: true
+                required: true,
+                isPhoneNumberValid: true
             },
             emailAddress:{
                 required: true,
@@ -93,3 +95,14 @@ function ValidateListing()
     return addForm.valid();
 }
 
+jQuery.validator.addMethod("isPhoneNumberValid",function(value, element)
+{
+    const regexp = /^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/;
+    return this.optional(element) || regexp.test(value);
+},"Must be a valid phone number");
+
+jQuery.validator.addMethod("isPostalCodeValid",function(value, element)
+{
+    const regexp = /^\d[A-Za-z]\d\s[A-Za-z]\d[A-Za-z]$/;
+    return this.optional(element) || regexp.test(value);
+},"Must be a valid postal code");
